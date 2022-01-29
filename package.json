@@ -1,7 +1,7 @@
 {
   "name": "thetatables",
   "version": "0.0.1",
-  "description": "Thetatables, a customizable data table",
+  "description": "ThetaTables, a customizable data table for React",
   "scripts": {
     "bundle": "rollup -c",
     "proto": "lite-server --baseDir=\"prototyping\"",

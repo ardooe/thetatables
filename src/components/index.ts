@@ -1,1 +1,1 @@
-export { default as Thetable } from './Thetatable';
+export { default as ThetaTable } from './ThetaTable';
