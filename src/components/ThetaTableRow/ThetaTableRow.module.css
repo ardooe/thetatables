@@ -1,6 +1,5 @@
 .row {
   display: flex;
-  padding: 1rem 1.25rem 0.75rem;
   box-shadow: 0 1px 1px gray;
 }
 
