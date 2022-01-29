@@ -28,7 +28,7 @@ function ThetaTable(props: ThetaTableProps) {
 
   function getHeaderRow(headerLabels?: string[]) {
     if (isNotEmpty(props.headerLabels)) {
-      return <ThetaTableRow data={headerLabels!} />;
+      return <ThetaTableRow data={headerLabels!} isHeader />;
     } else {
       return <></>;
     }

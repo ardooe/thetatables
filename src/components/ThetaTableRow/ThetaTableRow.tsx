@@ -7,11 +7,12 @@ export type ThetaTableRowProps = {
    * header labels or values.
    */
   data: Array<string | number>;
+  isHeader?: boolean;
 };
 
 function ThetaTableRow(props: ThetaTableRowProps) {
   return (
-    <div className={classes.row}>
+    <div className={props.isHeader ? classes['row--header'] : classes.row}>
       {props.data.map((datum, i) => (
         <ThetaTableColumn key={i} value={datum} />
       ))}

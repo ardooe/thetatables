@@ -1,8 +1,16 @@
-.row {
+.row,
+.row--header {
   display: flex;
-  box-shadow: 0 1px 1px gray;
+}
+
+.row--header {
+  background: #aaaaaa;
+  font-weight: bold;
+  border-radius: 1rem 0 0;
+  border-bottom: 0.5rem solid #999999;
 }
 
 .row:nth-child(even) {
   background: lightgray;
+  box-shadow: 0 1px 1px gray;
 }
