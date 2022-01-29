@@ -16,7 +16,7 @@ const ThetaTable = (props: ThetatableProps) => {
     }
   }
 
-  function getHeaderRows(headerLabels?: string[]) {
+  function getHeaderRow(headerLabels?: string[]) {
     if (isNotEmpty(props.headerLabels)) {
       return (
         <div>
@@ -30,7 +30,7 @@ const ThetaTable = (props: ThetatableProps) => {
     }
   }
 
-  return <div id="thetaTable">{getHeaderRows(props.headerLabels)}</div>;
+  return <div id="thetaTable">{getHeaderRow(props.headerLabels)}</div>;
 };
 
 export default ThetaTable;
