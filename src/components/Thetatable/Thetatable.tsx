@@ -1,13 +1,23 @@
-import React from 'react';
+import ThetaTableRow from '../ThetaTableRow/ThetaTableRow';
 
-export type ThetatableProps = {
+type ThetaTableDataRow = Array<string | number>;
+
+export type ThetaTableProps = {
   /**
-   * The labels that are shown on the first row. If empty, no header row is shown.
+   * The labels to display on the header row for each column, use empty strings
+   * for columns that have now label. If the array is empty, header row is not
+   * shown.
    */
   headerLabels?: string[];
+
+  /**
+   * The data, can be either string or number. Data has to be in matrix format,
+   * as in Arrays inside of an Array
+   */
+  data: Array<ThetaTableDataRow>;
 };
 
-const ThetaTable = (props: ThetatableProps) => {
+function ThetaTable(props: ThetaTableProps) {
   function isNotEmpty(array?: any[]): boolean {
     if (array != null) {
       return array.length > 0;
@@ -18,19 +28,26 @@ const ThetaTable = (props: ThetatableProps) => {
 
   function getHeaderRow(headerLabels?: string[]) {
     if (isNotEmpty(props.headerLabels)) {
-      return (
-        <div>
-          {headerLabels!.map((headerLabel) => (
-            <div>{headerLabel}</div>
-          ))}
-        </div>
-      );
+      return <ThetaTableRow data={headerLabels!} />;
     } else {
       return <></>;
     }
   }
 
-  return <div id="thetaTable">{getHeaderRow(props.headerLabels)}</div>;
-};
+  function getDataRow(data: Array<ThetaTableDataRow>) {
+    if (data.length > 0) {
+      return data.map((dataRow) => <ThetaTableRow data={dataRow} />);
+    } else {
+      return <></>;
+    }
+  }
+
+  return (
+    <div id="thetaTable">
+      {getHeaderRow(props.headerLabels)}
+      {getDataRow(props.data)}
+    </div>
+  );
+}
 
 export default ThetaTable;
