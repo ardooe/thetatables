@@ -1,4 +1,5 @@
 .col {
   flex: 1;
   padding: 1rem 1.25rem 0.75rem;
+  box-shadow: 3px 0 2px gray;
 }
