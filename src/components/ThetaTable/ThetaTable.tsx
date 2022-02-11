@@ -34,7 +34,7 @@ function ThetaTable(props: ThetaTableProps) {
     }
   }
 
-  function getDataRow(data: Array<ThetaTableDataRow>) {
+  function getDataRows(data: Array<ThetaTableDataRow>) {
     if (data.length > 0) {
       return data.map((dataRow) => <ThetaTableRow data={dataRow} />);
     } else {
@@ -45,7 +45,7 @@ function ThetaTable(props: ThetaTableProps) {
   return (
     <div id="thetaTable">
       {getHeaderRow(props.headerLabels)}
-      {getDataRow(props.data)}
+      {getDataRows(props.data)}
     </div>
   );
 }
