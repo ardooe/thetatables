@@ -34,7 +34,7 @@ function ThetaTable(props: ThetaTableProps) {
 
   function isNotEmpty(array?: any[]): boolean {
     if (array != null) {
-      return array.length > 0;
+      return array?.length > 0;
     } else {
       return false;
     }
@@ -48,18 +48,12 @@ function ThetaTable(props: ThetaTableProps) {
     }
   }
 
-  function getDataRows(data: Array<ThetaTableDataRow>) {
-    if (data.length > 0) {
-      return data.map((dataRow) => <ThetaTableRow data={dataRow} />);
-    } else {
-      return <></>;
-    }
-  }
-
   return (
     <div id="thetaTable">
       {getHeaderRow(props.headerLabels)}
-      {getDataRows(data)}
+      {data.map((dataRow) => (
+        <ThetaTableRow data={dataRow} />
+      ))}
     </div>
   );
 }
