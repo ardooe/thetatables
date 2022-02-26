@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import ThetaTableRow from '../ThetaTableRow/ThetaTableRow';
 
 type ThetaTableDataRow = Array<string | number>;
@@ -18,6 +19,19 @@ export type ThetaTableProps = {
 };
 
 function ThetaTable(props: ThetaTableProps) {
+  const [data, setData] = useState<ThetaTableDataRow[]>([]);
+
+  useEffect(() => {
+    setData(
+      props.data.map((datum) => {
+        return {
+          key: '', // TODO, generate key?
+          ...datum,
+        };
+      })
+    );
+  });
+
   function isNotEmpty(array?: any[]): boolean {
     if (array != null) {
       return array.length > 0;
@@ -45,7 +59,7 @@ function ThetaTable(props: ThetaTableProps) {
   return (
     <div id="thetaTable">
       {getHeaderRow(props.headerLabels)}
-      {getDataRows(props.data)}
+      {getDataRows(data)}
     </div>
   );
 }
